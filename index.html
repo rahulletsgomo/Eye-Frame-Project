@@ -1,0 +1,26 @@
+<html>
+<head>
+<title>Canvas</title>
+<script type = "text/javascript">
+    window.onload = function(){
+        var canvas = document.getElementById("myCanvas");
+        var context = canvas.getContext("2d");
+        var destX = 69;
+        var destY = 50;
+        var imageObj = new Image();
+        
+        imageObj.onload = function(){
+            context.drawImage(imageObj, destX, destY);
+        };
+        imageObj.src = "images/original images/4_c.png";
+    };
+ 
+    </script>
+</head>
+<body>
+<canvas id="myCanvas" width="307" height="85"
+Canvas is not supported ...
+</canvas>
+
+</body>
+</html>
