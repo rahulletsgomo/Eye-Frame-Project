@@ -1,26 +1,33 @@
-<html>
-<head>
-<title>Canvas</title>
-<script type = "text/javascript">
-    window.onload = function(){
-        var canvas = document.getElementById("myCanvas");
-        var context = canvas.getContext("2d");
-        var destX = 69;
-        var destY = 50;
-        var imageObj = new Image();
-        
-        imageObj.onload = function(){
-            context.drawImage(imageObj, destX, destY);
-        };
-        imageObj.src = "images/original images/4_c.png";
-    };
- 
-    </script>
-</head>
-<body>
-<canvas id="myCanvas" width="307" height="85"
-Canvas is not supported ...
-</canvas>
 
-</body>
+<html>
+    <head>
+        <title>Canvas drawImage </title>
+                 
+                <script type="application/x-javascript">
+                    function draw() {
+                        var ctx = document.getElementById('canvas').getContext('2d');
+                            ctx.drawImage(document.getElementById('source'),30,30);
+                            ctx.drawImage(document.getElementById('frame'),310,30);
+                    }
+                    </script>
+        
+                <style type="text/css">
+                    body { margin: 20px; font-family: arial,verdana,helvetica; background: #fff;}
+                    h1 { font-size: 140%; font-weight:normal; color: #036; border-bottom: 1px solid #ccc; }
+                    h2 { font-size: 100%; color: #036; }
+                    canvas { float: left; margin-right: 20px; margin-bottom: 20px; }
+                   
+                    </style>
+                </head>
+    <body onload="draw();">
+        <div>
+            <h1>Canvas <code>drawImage</code> example 3</h1>
+            <canvas id="canvas" width="700" height="150" style="border:1px solid red;"></canvas>
+            
+            <div style="float:left;display:none;">
+                                <img id="source" src="images/original images/4_c.png" width="307" height="84" alt="">
+                    <img id="frame" src="images/original images/4_s.png" width="307" height="85" alt="">
+                        </div>
+        </div>
+    </body>
 </html>
