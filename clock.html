@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>HTML Canvas Gauge</title>
+	<style type="text/css" media="screen">
+	</style>
+	<script type = "text/javascript" src = "jquery/jquery.js"></script>
+	<script type = "text/javascript">
+	$(function(){
+	 console.log("Checking JQuery ...");
+		dialCenter   = [129,124];
+		needleCenter = [ 13, 121.5 ];
+		dial = new Image, needle = new Image;
+		dial.src = 'images/dial.png';
+		needle.src = 'images/needle.png';
+
+			canvas = document.getElementById('canvas');
+			context = canvas.getContext('2d');
+			setInterval();
+			
+			setInterval(function(){
+				context.save();
+				context.clearRect( 0, 0, canvas.width, canvas.height );
+
+				// Center the dial on the canvas.
+				context.translate( canvas.width/2 , canvas.height/2 );
+				context.drawImage( dial, -dialCenter[0], -dialCenter[1] );
+
+				// Center the needle on the canvas.
+				context.rotate( 2.3*Math.sin( (new Date)*1/1000 ) - 0.15 );
+				context.drawImage( needle, -needleCenter[0], -needleCenter[1] );
+
+				context.restore();
+			});
+			
+		
+	 })
+/*	 
+	 function setInterval(){
+				context.save();
+				context.clearRect( 0, 0, canvas.width, canvas.height );
+
+				// Center the dial on the canvas.
+				context.translate( canvas.width/2 , canvas.height/2 );
+				context.drawImage( dial, -dialCenter[0], -dialCenter[1] );
+
+				// Center the needle on the canvas.
+				context.rotate( 2.3*Math.sin( (new Date)*1/1000 ) - 0.15 );
+				context.drawImage( needle, -needleCenter[0], -needleCenter[1] );
+
+				context.restore();	 
+	 }
+*/	 
+	 
+	</script>
+</head>
+<body>
+	<canvas id="canvas" height="500" width="500"></canvas>
+</body>
+</html>
