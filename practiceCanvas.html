@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>Practice HTML 5 Canvas</title>
+<script type = "text/javascript" src = "jquery/jquery.js"></script>
+<script type = "text/javascript">
+$(function(){
+ console.log("Check JQuery ...");
+  canvas = document.getElementById("canvas");
+  context = canvas.getContext("2d");
+  sideBar = new Image();
+  sideBar.src = "images/4_s.png";
+  sideBar.onload = function(){
+  context.drawImage(sideBar, 0, 114);
+ }	
+ $("#move").click(function(){
+  moveCanvas();
+ })
+})
+
+function moveCanvas(){
+ context.clearRect(0, 114, 90, 315);
+ context.rotate(170*Math.PI/180);
+ context.drawImage(sideBar, 0, 114);
+}
+</script>
+<style type = "text/css">
+#content{
+margin : 200px 0px 0px 400px;
+}
+#canvas{
+border : 1px solid #000;
+margin-left: -5px;
+}
+</style>
+</head>
+<body>
+<div id = "content">
+<img src = "images/4_c.png" />
+<canvas id = "canvas" width = "100px" height = "200px"></canvas>
+<input type = "button" id = "move" value = "move" />
+</div> 
+</body>
+</html>
