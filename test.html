@@ -1,0 +1,58 @@
+
+<html>
+	<head>
+	<title>AjaxApp.com - Add images or Draw on a Canvas using HTML 5</title>
+	<style>
+	body {font-family:verdana,arial;font-size:9pt;}
+	</style>
+	<script type="text/javascript">
+	var imgNo=0;
+	
+	var imgs=new Array ('http://askalexia.com/wp-content/uploads/2010/08/Magicooler-scarf-150x150.jpg',
+	'http://askalexia.com/wp-content/uploads/2010/08/apple_ipad_bumper-case-150x150.jpg',
+	'http://askalexia.com/wp-content/uploads/2010/08/Nokia-5250-handset-150x150.jpg',
+	'http://askalexia.com/wp-content/uploads/2010/08/Fly-Q200-Swivel-Phone-150x150.jpg',
+	'http://askalexia.com/wp-content/uploads/2010/08/Exercise-watch-150x150.jpg');
+	
+	
+	function addToCanvas()
+	{
+		if (imgNo>= imgs.length)
+		{
+			alert("You've reached maximum images allowed to add on this canvas!!");
+			return ;
+		}
+	
+		var drawingCanvas = document.getElementById('myDrawingCanvas');
+
+		// Check the element is in the DOM and the browser supports canvas
+		if(drawingCanvas.getContext) {
+			// Initaliase a 2-dimensional drawing context
+			var context = drawingCanvas.getContext('2d');
+
+			//Canvas commands go here
+			var imgObj = new Image();
+			imgObj.onload = function () {			
+				// Draw the image on the canvas
+				var nxtWidth=10+ (imgNo*155);
+				context.drawImage(imgObj, nxtWidth, 10, 150, 150);
+			}
+			
+			// Loading an external image from askalexia.com
+			imgObj.src=imgs[imgNo];
+			imgNo++;
+			
+		}
+
+	}
+	</script>
+	</head>
+<body><center>
+<div style="width:1000px;text-align:left;padding:3px;border:12px solid #eee;">
+<canvas id="myDrawingCanvas" width="900" height="200">
+<p>Your browser doesn't support canvas.</p>
+</canvas>
+<input type="button" value="Add Image to Canvas" onClick="addToCanvas()"/>
+</div>
+</center></body>
+</html>

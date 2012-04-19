@@ -1,0 +1,11 @@
+.border1px{
+border : 1px solid #000;
+}
+
+#controlPanel{
+position : absolute;
+left : 900px;
+top : 100px;
+width : 200px;
+height : 100px;
+}
