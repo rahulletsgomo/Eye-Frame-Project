@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>HTML5 Canvas</title>
+	<style type="text/css" media="screen">
+		body { margin:2em 4em; background:#ddd; text-align:center }
+		canvas { display:block; border:1px solid #aaa; margin:1em auto; background:#eee; }
+        </style>
+    <script type="text/javascript" src="jquery/jquery.js"></script>
+    <script type="text/javascript" charset="utf-8">
+        
+        $(function(){
+        $("#rot").click(function(){
+                        rotglass();                  
+          })
+                   
+          })   
+        
+		var mainCenter   = [200,124];
+		var sideCenter = [ -105, 125 ];
+		var main = new Image, side = new Image;
+		window.onload = function(){
+			c = document.getElementById('canvas');
+			ctx = c.getContext('2d');
+			setInterval(function(){
+                        ctx.save();
+                        ctx.clearRect( 0, 0, c.width, c.height );
+                        
+                        // Center the main on the canvas.
+                        ctx.translate( c.width/2 , c.height/2 );
+                        ctx.drawImage( main, -mainCenter[0], -mainCenter[1] );
+                        
+                        // Center the side on the canvas.
+                        ctx.rotate(0*Math.PI/180);
+                        ctx.drawImage( side, -sideCenter[0], -sideCenter[1] );
+                        ctx.restore();
+                        
+
+                      });
+           		};
+        
+        function rotglass()
+        {
+            //Center the side on the canvas.
+            ctx.clearRect(0,0,c.width,c.height);
+            ctx.rotate( 2*Math.PI/180);
+            //ctx.drawImage(side, -sideCenter[0], -sideCenter[1] );
+            //ctx.restore();
+            
+        }
+        
+		main.src = 'images/original images/4_c.png';
+		side.src = 'images/original images/4_s.png';
+         
+        
+        
+        
+        </script>
+
+        </head>
+    
+    
+    <body>
+	<canvas id="canvas" height="500" width="500"></canvas>	
+        
+    <input type="button" name="button" id="rot" value="Rotate" />
+    
+</body></html>
