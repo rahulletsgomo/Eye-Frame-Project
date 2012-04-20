@@ -2,11 +2,12 @@
 sideBarVariables = {"x":8, "y" : 168, "origin" : 0, "width": 10, "height" : 20}
 
 //boolean variables for checking the motion of the object
-movedIn = false;
-movedDown = false;
+isMovedIn = false;
+isMovedDown = false;
 
-//initialise sideBar width and height variables
+//initialise sideBar variables
 sideBarWidth = 0;
 sideBarHeight = 0;
+
 
 

@@ -12,3 +12,29 @@ margin : 200px 0px 0px 400px;
     margin:170px 0px 0px 80px;  
     position: relative;
 }    
+#controlPanel{
+ border : 1px solid #000;
+ width: 300px;
+ height: 300px;
+ position: absolute;
+ left: 850px;
+ top: 300px;
+}
+
+#slider{
+margin:5px 30px 0px 50px;
+width: 200px;
+}
+
+#adjustHeight{
+margin:100px 30px 0px 50px;
+}
+
+#heightBox{
+margin : 0px 0px 0px -2px;
+}
+
+#buttons{
+margin : 20px 0px 0px 40px;
+padding : 20px;
+}
