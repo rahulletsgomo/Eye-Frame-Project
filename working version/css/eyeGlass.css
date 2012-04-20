@@ -1,0 +1,14 @@
+#content{
+margin : 200px 0px 0px 400px;
+    background: url("../images/laurie_6_4.jpg") no-repeat;
+    width  : 400px;
+    height : 500px;
+}
+#canvas{	
+    margin-left: -5px;
+    position: absolute;
+}
+#frontBar{
+    margin:170px 0px 0px 80px;  
+    position: relative;
+}    
