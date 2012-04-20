@@ -4,13 +4,16 @@
 <script type = "text/javascript" src = "jquery/jquery.js"></script>
 <script type = "text/javascript">
 $(function(){
- console.log("Check JQuery ...");
+  //GLobal Variables
+  console.log("Check JQuery ...");
   canvas = document.getElementById("canvas");
   context = canvas.getContext("2d");
   sideBar = new Image();
   sideBar.src = "images/4_s.png";
   sideBar.onload = function(){
   context.drawImage(sideBar, 0, 114);
+  movedIn = false;
+  movedDown = false;
  }	
  $("#moveDown").click(function(){
   moveDown();
@@ -18,29 +21,57 @@ $(function(){
  $("#moveUp").click(function(){
   moveUp();
  })
+  $("#moveIn").click(function(){
+                     moveIn();
+                     
+ })
+  $("#moveOut").click(function(){
+                     moveOut();
+                     })
 })
 
 function moveDown(){
- //drawRotatedImage(sideBar, 0, 114, 5);
- 
- context.clearRect(0, 114, 90, 315);
+ context.clearRect(0, 114, 100, 315);
  context.translate(0, 114);
- //context.translate(sideBar.width/2, sideBar.height/2);
  context.rotate(0.5);
  context.drawImage(sideBar, 0, 0);
- 
- /*
- context.clearRect(0, 114, 90, 315);
- context.rotate(0.5);
- context.drawImage(sideBar, 0, 114);
-*/
+ moveDown = true;
  }
  
  function moveUp(){
-  console.log("Inside moveUp function")
-  context.clearRect(0, 114, 90, 315);
+       if(moveDown){
+  context.clearRect(0, 114, 100, 315);
   context.drawImage(sideBar, 0, 114);
+     }
+ }	
+    
+    function moveIn(){
+        console.log("Inside moveIn function ....");	
+        context.clearRect(0, 114, 100, 315);
+       // context.translate(0, 114);
+        //context.rotate();
+        context.drawImage(sideBar, 0, 114, 80, 87);
+        movedIn = true;
+/*
+     	context.clearRect(0, 114, 100, 315);
+        context.drawImage(sideBar, 0, 120, 50, 100);	
+*/
  }
+    
+    function moveOut(){
+        if(movedIn){
+            console.log("inside the condition...");
+            try{
+            context.clearRect(0, 114, 100, 315);
+            context.drawImage(sideBar, 0, 114);
+            }
+            catch(exception){
+            console.log("The following exception occured : "+exception)
+            }
+        }
+    }
+    
+
  
 </script>
 <style type = "text/css">
@@ -48,7 +79,7 @@ function moveDown(){
 margin : 200px 0px 0px 400px;
 }
 #canvas{
-border : 1px solid #000;
+border : 1px solid #000;	
 margin-left: -5px;
 }
 </style>
@@ -59,6 +90,8 @@ margin-left: -5px;
 <canvas id = "canvas" width = "100px" height = "200px"></canvas>
 <input type = "button" id = "moveDown" value = "Move Down" />
 <input type = "button" id = "moveUp" value = "Move Up" />
+<input type = "button" id = "moveIn" value = "Move In" />   
+<input type = "button" id = "moveOut" value = "Move Out"/>	
 </div> 
 </body>
 </html>
