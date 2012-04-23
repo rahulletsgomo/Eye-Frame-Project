@@ -9,12 +9,13 @@
     <script type="text/javascript" src="jquery/jquery.js"></script>
     <script type="text/javascript" src="jquery/jquery-ui-1.8.19.custom.min.js"></script>
     <script type="text/javascript" src="js/globalVars.js"></script>
+    <script type="text/javascript" src="js/events.js"></script>
     <script type="text/javascript" src="js/canvasFunctions.js"></script>
     <script type="text/javascript">
         $(function () {
             //initialise canvas
-            canvas = document.getElementById("canvas");
-            context = canvas.getContext("2d");
+            sideBarCanvas = document.getElementById("sideBarCanvas");
+            sideBarContext = sideBarCanvas.getContext("2d");
             //image object for canvas
             sideBar = new Image();
             sideBar.src = "images/4_s.png";
@@ -23,7 +24,6 @@
                 sideBarHeight = (sideBar.height - sideBarVariables.height)
                 defaultImage();
             }
-
             getClickEvents()
             getSliderDraggable()
         });
@@ -33,7 +33,9 @@
 <div id="content">
     <div id="specs">
         <img src="images/4_c.png" id="frontBar" height="70"/>
-        <canvas id="canvas" width="800px" height="250px"></canvas>
+        <!--<canvas id="frontBarCanvas" width="800px" height="250px"></canvas>-->
+        <canvas id="sideBarCanvas" width="800px" height="250px"></canvas>
+        <!--<canvas id="canvas" width="800px" height="250px"></canvas>-->
     </div>
 </div>
 

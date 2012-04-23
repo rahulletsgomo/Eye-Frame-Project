@@ -4,7 +4,7 @@ margin : 200px 0px 0px 400px;
     width  : 400px;
     height : 500px;
 }
-#canvas{	
+#sideBarCanvas{
     margin-left: -5px;
     position: absolute;
 }
